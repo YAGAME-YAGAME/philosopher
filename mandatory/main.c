@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yagame <yagame@student.42.fr>              +#+  +:+       +#+        */
+/*   By: otzarwal <otzarwal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 20:22:06 by yagame            #+#    #+#             */
-/*   Updated: 2025/05/26 21:18:33 by yagame           ###   ########.fr       */
+/*   Updated: 2025/05/28 07:31:09 by otzarwal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,8 @@ int main(int argc, char **argv)
     }
     // ⁉️ parse arguments
     
-    if(!ft_parser(&info, argv))
-    {
-        write(2, RED"Error: Invalid arguments\n", 25);
-        return (1);
-    }
+    ft_parser(&info, argv);
+    
 
     
     // ⁉️ int struct philo_args

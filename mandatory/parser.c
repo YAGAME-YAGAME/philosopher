@@ -3,31 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yagame <yagame@student.42.fr>              +#+  +:+       +#+        */
+/*   By: otzarwal <otzarwal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 21:20:31 by yagame            #+#    #+#             */
-/*   Updated: 2025/05/26 21:26:35 by yagame           ###   ########.fr       */
+/*   Updated: 2025/05/28 10:11:59 by otzarwal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
 
-static int invalid_args(char **av)
+static int ft_itol(char *s)
 {
-    int i;
+    int res;
 
-    i = 0;
-    while(av[i])
-    {
-        if(!ft_check_is_ligit(av[i]))
-            return (0);
-    }
+    res = 0;
+    s = is_valid(s);
+    res = ft_atoi(s);
+    return (res);
+    
 }
 
-ft_parser(t_philo_info *info, char **av)
+void    ft_parser(t_philo_info *info, char **av)
 {
-    if(!invalid_args(av))
-        ft_error("arguments not valid");
+    info->philo_nbr = ft_itol(av[1]);
+    info->time_to_die = ft_itol(av[2]) * 1e3;
+    info->time_to_eat = ft_itol(av[3]) * 1e3;
+    info->time_to_sleep = ft_itol(av[4]) * 1e3;
+    if(av[5])
+        info->meal_limit = ft_itol(av[5]) * 1e3;
+    else
+        info->meal_limit = -1;
+    if(info->time_to_die || info->time_to_eat
+        || info->time_to_sleep)
+            ft_error("timestamps must be mojer than 60ms");
+    
+    
+    
     
 }

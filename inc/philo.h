@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yagame <yagame@student.42.fr>              +#+  +:+       +#+        */
+/*   By: otzarwal <otzarwal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 20:20:23 by yagame            #+#    #+#             */
-/*   Updated: 2025/05/27 18:58:29 by yagame           ###   ########.fr       */
+/*   Updated: 2025/05/28 09:58:24 by otzarwal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <limits.h>
+
+# include <stdio.h>
 
 /* ANSI Color Codes */
 # define RESET   "\033[0m"
@@ -61,7 +63,10 @@ typedef struct s_philo_info
     t_philos             *philos;
 } t_philo_info;
 
-
+// mini libft
+int                     ft_atoi(char *s);
+char                    *is_valid(char *s);
+int                     ft_strlen(const char *s);
 
 // for errors 
 void                    ft_error(const char *message);
