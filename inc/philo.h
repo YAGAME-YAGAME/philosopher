@@ -6,7 +6,7 @@
 /*   By: otzarwal <otzarwal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 20:20:23 by yagame            #+#    #+#             */
-/*   Updated: 2025/05/28 09:58:24 by otzarwal         ###   ########.fr       */
+/*   Updated: 2025/06/01 13:32:57 by otzarwal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@ typedef struct s_philos
 {
     int                 id;
     long                meal_counter;
-    long                last_meal_time;
+    long                last_meal;
     t_mutex             *left_fork;
     t_mutex             *right_fork;
-    pthread_t           *thread_id;
+    pthread_t           *thread_philo;
     t_philo_info        *info;
     
     
 } t_philos;
 
-typedef struct s_philo_info
+typedef struct s_info
 {
     long                 philo_nbr;
     long                 time_to_die;
@@ -58,18 +58,19 @@ typedef struct s_philo_info
     long                 meal_limit;
     long                 start_simulation;
     long                 end_simulation;
-    pthread_mutex_t      *forks;
-    pthread_mutex_t      print_mutex;
+    t_mutex              *forks;
+    t_mutex              print_lock;
     t_philos             *philos;
-} t_philo_info;
+} t_info;
 
 // mini libft
 int                     ft_atoi(char *s);
 char                    *is_valid(char *s);
 int                     ft_strlen(const char *s);
+int                     ft_init(t_info *info);
+int                     ft_parser(t_info *info, char **av);
 
 // for errors 
 void                    ft_error(const char *message);
-void                    ft_parser(t_philo_info *info, char **av);
 
 # endif

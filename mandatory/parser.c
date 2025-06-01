@@ -6,7 +6,7 @@
 /*   By: otzarwal <otzarwal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 21:20:31 by yagame            #+#    #+#             */
-/*   Updated: 2025/05/28 10:11:59 by otzarwal         ###   ########.fr       */
+/*   Updated: 2025/06/01 11:05:18 by otzarwal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ static int ft_itol(char *s)
     s = is_valid(s);
     res = ft_atoi(s);
     return (res);
-    
 }
 
-void    ft_parser(t_philo_info *info, char **av)
+int    ft_parser(t_info *info, char **av)
 {
     info->philo_nbr = ft_itol(av[1]);
     info->time_to_die = ft_itol(av[2]) * 1e3;
@@ -34,11 +33,16 @@ void    ft_parser(t_philo_info *info, char **av)
         info->meal_limit = ft_itol(av[5]) * 1e3;
     else
         info->meal_limit = -1;
-    if(info->time_to_die || info->time_to_eat
-        || info->time_to_sleep)
+        
+    if(info->time_to_die < 6e4 || info->time_to_eat < 6e4
+        || info->time_to_sleep < 6e4)
             ft_error("timestamps must be mojer than 60ms");
-    
-    
-    
-    
+            
+    info->end_simulation = 0;
+    if(pthread_mutex_init(&info->print_lock, NULL))
+        return (1);
+    info->philos = malloc(sizeof(t_philos) * info->philo_nbr);
+    info->forks = malloc(sizeof(pthread_mutex_t) * info->philo_nbr);
+    if(!info->philos || !info->forks)
+        return (1);
 }
