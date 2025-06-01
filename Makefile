@@ -1,11 +1,14 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 MD = mandatory
 SRC = $(MD)/main.c\
 		$(MD)/ft_error.c \
 		$(MD)/parser.c \
 		$(MD)/minilibft.c \
+		$(MD)/ft_init.c \
+		$(MD)/simulation.c \
+
 
 INC = inc/philo.h
 OBJ = $(SRC:.c=.o)

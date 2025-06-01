@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otzarwal <otzarwal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yagame <yagame@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 20:20:23 by yagame            #+#    #+#             */
-/*   Updated: 2025/06/01 13:32:57 by otzarwal         ###   ########.fr       */
+/*   Updated: 2025/06/01 18:37:32 by yagame           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 
 
 typedef pthread_mutex_t t_mutex;
-typedef struct s_philo_info t_philo_info;
+typedef struct s_info t_info;
 
 typedef struct s_philos
 {
@@ -43,8 +43,8 @@ typedef struct s_philos
     long                last_meal;
     t_mutex             *left_fork;
     t_mutex             *right_fork;
-    pthread_t           *thread_philo;
-    t_philo_info        *info;
+    pthread_t           thread_philo;
+    t_info              *info;
     
     
 } t_philos;
@@ -63,12 +63,15 @@ typedef struct s_info
     t_philos             *philos;
 } t_info;
 
-// mini libft
+// utils
 int                     ft_atoi(char *s);
 char                    *is_valid(char *s);
 int                     ft_strlen(const char *s);
-int                     ft_init(t_info *info);
+
+// 
 int                     ft_parser(t_info *info, char **av);
+int                     start_simulation(t_info *info);
+int                     ft_init_info(t_info *info);
 
 // for errors 
 void                    ft_error(const char *message);

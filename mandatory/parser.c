@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otzarwal <otzarwal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yagame <yagame@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 21:20:31 by yagame            #+#    #+#             */
-/*   Updated: 2025/06/01 11:05:18 by otzarwal         ###   ########.fr       */
+/*   Updated: 2025/06/01 18:21:25 by yagame           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,5 @@ int    ft_parser(t_info *info, char **av)
     info->forks = malloc(sizeof(pthread_mutex_t) * info->philo_nbr);
     if(!info->philos || !info->forks)
         return (1);
+    return (0);
 }

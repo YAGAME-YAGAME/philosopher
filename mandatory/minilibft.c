@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   minilibft.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: otzarwal <otzarwal@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yagame <yagame@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 08:02:22 by otzarwal          #+#    #+#             */
-/*   Updated: 2025/05/28 09:58:16 by otzarwal         ###   ########.fr       */
+/*   Updated: 2025/06/01 18:21:41 by yagame           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../inc/philo.h"
+
+
 
 
 static int skip(char c)
